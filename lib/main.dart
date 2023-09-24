@@ -72,8 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        if (count >= 1) {
-                          count = count - 1;
+                        if (count > 0) {
+                          count --;
                         }
                       });
                     },
