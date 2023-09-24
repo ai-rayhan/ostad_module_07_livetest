@@ -31,56 +31,56 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Counter App"),),
+        appBar: AppBar(
+          title: const Text("Counter App"),
+        ),
         body: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text("Count", style: TextStyle(fontSize: 24)),
-        Text(count.toString(), style: const TextStyle(fontSize: 24)),
-        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    if (count < 5) {
+            const Text("Count:", style: TextStyle(fontSize: 24)),
+            Text(count.toString(), style: const TextStyle(fontSize: 36)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
                       setState(() {
-                        count = count + 1;
+                        setState(() {
+                          count++;
+                        });
+                        if (count >= 5) {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    title: Text("Button Pressed $count time"),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text("Close")),
+                                    ],
+                                  ));
+                        }
                       });
-                    }
-                    if (count >= 5) {
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text("button Pressed $count time"),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: const Text("Close"))
-                                ],
-                              ));
-                    }
-                  });
-                },
-                child: const Icon(Icons.add)),
-            const SizedBox(
-              width: 10,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    if (count >= 1) {
-                      count = count - 1;
-                    }
-                  });
-                },
-                child: const Icon(Icons.remove)),
+                    },
+                    child: const Icon(Icons.add)),
+                const SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        if (count >= 1) {
+                          count = count - 1;
+                        }
+                      });
+                    },
+                    child: const Icon(Icons.remove)),
+              ],
+            )
           ],
-        )
-      ],
-    ));
+        ));
   }
 }
