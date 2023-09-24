@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text("Count:", style: TextStyle(fontSize: 24)),
-            Text(count.toString(), style: const TextStyle(fontSize: 36)),
+            Text(count.toString(), style: const TextStyle(fontSize: 40)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: const Icon(Icons.add)),
                 const SizedBox(
-                  width: 10,
+                  width: 16,
                 ),
                 ElevatedButton(
                     onPressed: () {
